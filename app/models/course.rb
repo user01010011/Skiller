@@ -9,4 +9,10 @@ class Course < ApplicationRecord
   validates :importance, presence: true
   validates :progress, presence: true
   validates :course_url, presence: true 
+
+  accepts_nested_attributes_for :skill 
+
+  scope :order_by_importance, -> {order(importance: :asc)}
+  scope :current_courses, -> {where(progress="In Progress")}
+
 end

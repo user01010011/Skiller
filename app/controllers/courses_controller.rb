@@ -2,7 +2,9 @@ class CoursesController < ApplicationController
     before_action :set_course, only: %i[ show edit update destory ]
 
     def index
-        @courses = Course.all 
+        # @courses = Course.all 
+        @courses = Course.order_by_importance
+        @courses = Course.order_by_progress.includes(:skill)
     end
 
     def show 
