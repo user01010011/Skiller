@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  course_name: MyString
+  course_description: MyText
+  institution: MyString
+  teacher: MyString
+  importance: MyString
+  progress: MyString
+  course_url: MyString
+  user: one
+  skill: one
+
+two:
+  course_name: MyString
+  course_description: MyText
+  institution: MyString
+  teacher: MyString
+  importance: MyString
+  progress: MyString
+  course_url: MyString
+  user: two
+  skill: two
