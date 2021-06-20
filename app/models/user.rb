@@ -8,6 +8,10 @@ class User < ApplicationRecord
     validates :username, uniqueness: true, presence: true
     validates :password, presence: true
 
+    def auth 
+        request.env['omniauth.auth']
+    end
+
     def self.from_omniauth(auth)
         self.find_or_create_by(provider: auth("provider"), uid: auth("uid")) do |u|
             u.email = auth['info']['email']
@@ -15,4 +19,5 @@ class User < ApplicationRecord
             u.username = auth['info']['first_name']
         end
     end
+    
 end

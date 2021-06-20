@@ -1,4 +1,5 @@
 class SkillsController < ApplicationController
+    before_action :set_skill, only %i[ show edit update destroy]
 
     def index
         @skills = Skill.all

@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+    before_action :set_course, only: %i[ show edit update destory ]
 
     def index
         @courses = Course.all 
@@ -25,7 +26,19 @@ class CoursesController < ApplicationController
         @course = Course.find(params[:id])
     end
 
+    def update
+        if @course.update(course_params)
+            redirect_to course_path(@course)
+        else 
+            render :edit
+        end
+    end
+
     private 
+
+    def set_course 
+        @course = Course.find(params[:id])
+    end
 
     def course_params 
         params.require(:course).permit(:course_name, :course_description, :institution, :teacher, :importance, :progress, :course_url) 

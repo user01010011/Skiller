@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id 
             redirect_to user_path(@user)
         else 
+            flash[:error] = "Sorry, your login infor was incorrect. Please try again."
             redirect_to login_path
         end
     end 
@@ -39,7 +40,7 @@ class SessionsController < ApplicationController
     end
 
     def auth 
-        request.env('omniauth.auth')
+        request.env['omniauth.auth']
     end
 
 end
