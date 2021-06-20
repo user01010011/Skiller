@@ -7,4 +7,12 @@ class User < ApplicationRecord
     validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
     validates :username, uniqueness: true, presence: true
     validates :password, presence: true
+
+    def self.from_omniauth(auth)
+        self.find_or_create_by(provider: auth("provider"), uid: auth("uid")) do |u|
+            u.email = auth['info']['email']
+            u.password = SecureRandom.hex(16)
+            u.username = auth['info']['first_name']
+        end
+    end
 end

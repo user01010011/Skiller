@@ -14,8 +14,18 @@ class SessionsController < ApplicationController
         else 
             redirect_to login_path
         end
-
     end 
+
+    def omniauth
+        user = User.from_omniauth(auth)
+        if user.valid?
+            session[:user_id] = user.id 
+            redirect_to user_path(user)
+        else 
+            flash[:error] = "Invalid credentials"
+            redirect_to login_path
+        end
+    end
 
     def destroy
         session.clear 
@@ -26,6 +36,10 @@ class SessionsController < ApplicationController
 
     def user_params
         params.require(:user).permit(:username, :password, :first_name, :last_name, :email)
+    end
+
+    def auth 
+        request.env('omniauth.auth')
     end
 
 end

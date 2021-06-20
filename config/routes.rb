@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
+  match '/auth/github/callback' => 'sessions#omniauth', via: [:get, :post]
+
   resources :courses
   resources :skills
   resources :users
