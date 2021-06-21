@@ -1,8 +1,9 @@
 class SkillsController < ApplicationController
-    before_action :set_skill, only %i[ show edit update destroy]
+    before_action :set_skill, only: %i[ show edit update destroy]
 
     def index
         @skills = Skill.all
+        @skills = Skill.order_by_name
     end
 
     def show 
@@ -35,6 +36,10 @@ class SkillsController < ApplicationController
     end
 
     private
+
+    def set_skill
+        @skill = Skill.find(params[:id])
+    end
 
     def skill_params 
         params.require(:skill).permit(:skill_name, :skill_type, :skill_description, courses_attributes: [ :course_name, :course_description, :institution, :teacher, :importance, :progress, :course_url ])
