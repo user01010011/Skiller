@@ -1,0 +1,28 @@
+<h1>Add a New Course! </h>
+
+<%= form_for(@course) do |f| %>
+    <%= f.label :course_name %>
+    <%= f.text_field :course_name %><br>
+    <%= f.label :course_description %>
+    <%= f.text_field :course_description%><br>
+    <%= f.label :institution %>
+    <%= f.text_field :institution %><br>
+    <%= f.label :teacher %>
+    <%= f.text_field :teacher %><br>
+    <%= f.label :importance %>
+    <%= f.select :importance, [ '1=Urgent','2=High', '3=Medium', '4=Low' ], :prompt => 'Select One' %><br>
+    <%= f.label :progress %>
+    <%= f.select :progress, [ 'Completed','In Progress', 'Not Started' ], :prompt => 'Select One' %><br>
+    <%= f.label :course_url %>
+    <%= f.text_field :course_url %><br>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.label :skill %>
+    <%= f.collection_select :skill_id, Skill.all.order_by_name, :id, :skill_name %><br>
+    <br>
+    <p>Or Create a new Skill for this course first: </p>
+    <div>
+        <%= link_to "Add a new Skill", 'skills/new' %>
+    </div>
+    <br>
+    <%= f.submit "Submit" %>
+<% end %>
