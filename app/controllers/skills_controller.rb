@@ -3,8 +3,10 @@ class SkillsController < ApplicationController
 
     def index
         # @skills = Skill.all
-        @skills = Skill.search(params[:search])
         @skills = Skill.order_by_name
+        if params[:search]
+            @skills = Skill.search(params[:search])
+        end
     end
 
     def show 
