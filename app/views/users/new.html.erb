@@ -1,20 +1,7 @@
 <h1>Sign up for Skiller!</h1>
 
-<%= form_for(@user) do |f| %>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %><br>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %><br>
-    <%= f.label :email %>
-    <%= f.text_field :email %><br>
-    <%= f.label :username %>
-    <%= f.text_field :username %><br>
-    <%= f.label :password %>
-    <%= f.password_field :password %><br>
-    <br>
-    <%= f.submit "Submit" %>
-<% end %>
-
+<%= render 'form', user: @user %>
+<%= link_to 'Back', users_path %>
 <br>
 <h3>Already have an account? Log In here!</h3>
 <p><%= link_to "Log In", login_path %></p>
