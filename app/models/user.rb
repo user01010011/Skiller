@@ -8,6 +8,8 @@ class User < ApplicationRecord
     validates :username, uniqueness: true, presence: true
     validates :password, presence: true
 
+    accepts_nested_attributes_for :skill, :courses
+
     def auth 
         request.env['omniauth.auth']
     end
