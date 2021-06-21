@@ -2,7 +2,8 @@ class SkillsController < ApplicationController
     before_action :set_skill, only: %i[ show edit update destroy]
 
     def index
-        @skills = Skill.all
+        # @skills = Skill.all
+        @skills = Skill.search(params[:search])
         @skills = Skill.order_by_name
     end
 

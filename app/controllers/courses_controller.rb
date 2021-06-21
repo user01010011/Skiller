@@ -3,6 +3,7 @@ class CoursesController < ApplicationController
 
     def index
         # @courses = Course.all 
+        @courses = Course.search(params[:search])
         @courses = Course.order_by_importance
         # @courses = Course.order_by_progress
         # @courses = Course.order_by_progress.includes(:skill)
