@@ -1,49 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Course name:</strong>
-  <%= @course.course_name %>
+  <strong>Skill name:</strong>
+  <%= @skill.skill_name %>
 </p>
 
 <p>
-  <strong>Course description:</strong>
-  <%= @course.course_description %>
+  <strong>Skill type:</strong>
+  <%= @skill.skill_type %>
 </p>
 
 <p>
-  <strong>Institution:</strong>
-  <%= @course.institution %>
+  <strong>Skill description:</strong>
+  <%= @skill.skill_description %>
 </p>
 
-<p>
-  <strong>Teacher:</strong>
-  <%= @course.teacher %>
-</p>
-
-<p>
-  <strong>Importance:</strong>
-  <%= @course.importance %>
-</p>
-
-<p>
-  <strong>Progress:</strong>
-  <%= @course.progress %>
-</p>
-
-<p>
-  <strong>Course url:</strong>
-  <%= @course.course_url %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @course.user_id %>
-</p>
-
-<p>
-  <strong>Skill:</strong>
-  <%= @course.skill_id %>
-</p>
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<%= link_to 'Edit', edit_skill_path(@skill) %> |
+<%= link_to 'Back', skills_path %>
