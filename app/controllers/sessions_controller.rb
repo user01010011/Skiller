@@ -30,11 +30,11 @@ class SessionsController < ApplicationController
 
     # def github
     #     @user = User.find_or_create_by(username: auth["info"]["name"]) do |user| 
-    #         @user.password = SecureRandom.hex(16)
+    #         user.password = SecureRandom.hex(10)
     #     end 
     #     if @user && @user.id 
     #         session[:user_id] = @user.id 
-    #         redirect_to user_path(@user) 
+    #         redirect_to user_path(@user)
     #     else 
     #         flash[:error] = "Invalid credentials"
     #         redirect_to login_path

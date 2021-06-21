@@ -17,11 +17,18 @@ class User < ApplicationRecord
     end
 
     def self.from_omniauth(auth)
-        self.find_or_create_by(provider: auth("github"), uid: auth("uid")) do |u|
+        self.find_or_create_by(provider: auth["provider"], uid: auth["uid"]) do |u|
             u.email = auth['info']['email']
-            u.password = SecureRandom.hex(16)
-            u.username = auth['info']['first_name']
+            u.password = SecureRandom.hex(10)
+            # u.username = auth['info']['name']
         end
     end
+
+    # def self.from_omniauth(auth)
+    #     where(provider: github, uid: auth.uid).first_or_create do |u|
+    #         u.email = auth.info.email
+    #         u.password = SecureRandom.hex(10)
+    #     end
+    # end
     
 end
