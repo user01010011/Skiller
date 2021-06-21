@@ -37,7 +37,7 @@ class SkillsController < ApplicationController
     private
 
     def skill_params 
-        params.require(:skill).permit(:skill_name, :skill_type, :skill_description)
+        params.require(:skill).permit(:skill_name, :skill_type, :skill_description, courses_attributes: [ :course_name, :course_description, :institution, :teacher, :importance, :progress, :course_url ])
     end
 
 end
