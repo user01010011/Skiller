@@ -3,7 +3,7 @@ class Course < ApplicationRecord
   belongs_to :skill
 
   validates :course_name, uniqueness: true, presence: true 
-  validates :course_desciption, presence: true 
+  validates :course_description, presence: true 
   validates :institution, presence: true 
   validates :teacher, presence: true
   validates :importance, presence: true
@@ -17,7 +17,7 @@ class Course < ApplicationRecord
     if search
        where(["course_name LIKE ?","%#{search}%"])
     else
-        Course.all.order_by_name
+        Course.all.order_by_importance
     end
   end
 

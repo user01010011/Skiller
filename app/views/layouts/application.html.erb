@@ -14,10 +14,10 @@
   <% if current_user %>
     <h3>
     <img style='width: 30px' src="/assets/logos/robot_icon.png" /> |
-     <%= link_to "Home", "/" %> |
+     <%= link_to "Home", '/users/:id' %> |
      <%= link_to  "My Courses", courses_path %> |
      <%= link_to  "My Skills", skills_path %> |
-     <%= link_to "Log Out", 'sessions#destroy' %>
+     <%= link_to "Log Out", logout_path %>
     </h3>
   <% else %>
     <h3>
@@ -25,7 +25,7 @@
     <%= link_to "Home", root_path %> |
     <%= link_to "Sign Up", signup_path %> |
     <%= link_to "Log In", login_path %> |
-    <%= link_to "Log in with Github", '/auth/github/callback' %> 
+    <%= link_to "Log in with Github", auth_github_callback_path %> 
     </h3>
   <% end %>
   </div>

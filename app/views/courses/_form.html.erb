@@ -10,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-<% end %>
 
 <%= form_for(@course) do |f| %>
     <%= f.label :course_name %>
@@ -27,14 +26,16 @@
     <%= f.select :progress, [ 'Completed','In Progress', 'Not Started' ], :prompt => 'Select One' %><br>
     <%= f.label :course_url %>
     <%= f.text_field :course_url %><br>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.label :user %>
+    <%= f.text_field :user, value: current_user.username, readonly: true %><br>
     <%= f.label :skill %>
     <%= f.collection_select :skill_id, Skill.all.order_by_name, :id, :skill_name %><br>
     <br>
     <p>Or Create a new Skill for this course first: </p>
     <div>
-        <%= link_to "Add a new Skill", 'skills/new' %>
+        <%= link_to "Add a new Skill", skills_new_path %>
     </div>
     <br>
     <%= f.submit "Submit" %>
+<% end %>
 <% end %>
