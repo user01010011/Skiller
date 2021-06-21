@@ -15,4 +15,12 @@ class Course < ApplicationRecord
   scope :order_by_importance, -> {order(importance: :asc)}
   scope :current_courses, -> {where(progress="In Progress")}
 
+  def self.search(search)
+    if search
+       where(["course_name LIKE ?","%#{search}%"])
+    else
+        Course.all.order_by_name
+    end
+  end
+
 end
