@@ -1,16 +1,10 @@
 <div>
     <h1> Welcome to your Skiller homepage, <%= @user.username %>! </h1>
-    
-    <%= render @user.courses %>
      
     <div style='width: 300px'>
     <img style='width: 200px' src="https://image.flaticon.com/icons/png/512/862/862528.png">
        <br><br>
        <h3>Start learning new skills NOW!🔥 </h3>
-       <br>
-          <%= button_to "Add Skills", 'skills#new' %> 
-          <br>
-          <%= button_to "Add Courses", 'courses#new' %>
     </div>
 </div>
 
