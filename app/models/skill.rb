@@ -8,5 +8,5 @@ class Skill < ApplicationRecord
 
     accepts_nested_attributes_for :courses 
 
-    scope :order_by_name, -> { order(skill_name: :asc) }
+    scope :order_by_name, -> {order(skill_name: :asc)}
 end
