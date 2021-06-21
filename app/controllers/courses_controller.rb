@@ -4,7 +4,8 @@ class CoursesController < ApplicationController
     def index
         # @courses = Course.all 
         @courses = Course.order_by_importance
-        @courses = Course.order_by_progress.includes(:skill)
+        # @courses = Course.order_by_progress
+        # @courses = Course.order_by_progress.includes(:skill)
     end
 
     def show 
