@@ -28,6 +28,10 @@ class SessionsController < ApplicationController
         end
     end
 
+    def about
+        render :about
+    end
+
     # def github
     #     @user = User.find_or_create_by(username: auth["info"]["name"]) do |user| 
     #         user.password = SecureRandom.hex(10)

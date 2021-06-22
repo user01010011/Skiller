@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
   post '/skills/new' => 'skills#new'
+  get '/about' => 'sessions#about'
 
   match '/auth/github/callback' => 'sessions#omniauth', via: [:get, :post]
   

@@ -15,6 +15,7 @@
     <h3>
     <img style='width: 30px' src="/assets/logos/robot_icon.png" /> |
      <%= link_to "Home", current_user %> |
+     <%= link_to "About", about_path %> |
      <%= link_to  "My Courses", courses_path %> |
      <%= link_to  "My Skills", skills_path %> |
      <%= link_to "Log Out", logout_path %>
@@ -22,6 +23,7 @@
   <% else %>
     <h3>
     <img style='width: 30px' src="/assets/logos/robot_icon.png" /> |
+    <%= link_to "About", about_path %> |
     <%= link_to "Home", root_path %> |
     <%= link_to "Sign Up", signup_path %> |
     <%= link_to "Log In", login_path %> |
